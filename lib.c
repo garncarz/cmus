@@ -71,6 +71,7 @@ static void all_wins_changed(void)
 
 static void shuffle_add(struct tree_track *track)
 {
+	d_print("%s\n", tree_track_info(track)->title);
 	shuffle_list_add(&track->shuffle_track, &lib_shuffle_root);
 }
 
@@ -324,6 +325,7 @@ void lib_init(void)
 {
 	editable_init(&lib_editable, free_lib_track);
 	tree_init();
+	d_print("srand\n");
 	srand(time(NULL));
 }
 

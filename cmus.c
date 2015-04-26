@@ -56,6 +56,7 @@ static const char * const playlist_exts[] = { "m3u", "pl", "pls", NULL };
 int cmus_init(void)
 {
 	playable_exts = ip_get_supported_extensions();
+	d_print("rand: %f\n", rand() / ((double) RAND_MAX + 1));
 	cache_init();
 	worker_init();
 	play_queue_init();

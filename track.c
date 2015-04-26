@@ -281,6 +281,7 @@ static int compare_rand(const struct rb_node *a, const struct rb_node *b)
 static void shuffle_track_init(struct shuffle_track *track)
 {
 	track->rand = rand() / ((double) RAND_MAX + 1);
+	d_print("%s %f\n", shuffle_track_info(track)->title, track->rand);
 }
 
 void shuffle_list_add(struct shuffle_track *track, struct rb_root *tree_root)
@@ -311,6 +312,7 @@ void shuffle_list_add(struct shuffle_track *track, struct rb_root *tree_root)
 
 void shuffle_list_reshuffle(struct rb_root *tree_root)
 {
+	d_print("reshuffling\n");
 	struct rb_node *node, *tmp;
 	struct rb_root tmptree = RB_ROOT;
 
